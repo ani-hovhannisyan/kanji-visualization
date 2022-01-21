@@ -1,0 +1,21 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  run-test:
+    name: Run Test
+    runs-on: ubuntu-latest
+  
+    steps:
+    - name: checkout
+    - uses: actions/checkout@v2
+    - name: Install depencies
+      run: yarn install
+    - name: Run unit test
+      run: yarn test
