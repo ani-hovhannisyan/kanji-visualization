@@ -9,10 +9,9 @@ jobs:
   run-test:
     name: Run Test
     runs-on: ubuntu-latest
-  
     steps:
     - name: checkout
-    - uses: actions/checkout@v2
+      uses: actions/checkout@v2
     - name: Install depencies
       run: yarn install
     - name: Run unit test
