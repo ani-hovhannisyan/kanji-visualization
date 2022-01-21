@@ -13,6 +13,8 @@ jobs:
     - name: checkout
       uses: actions/checkout@v2
     - name: Install depencies
+      working-directory: ./frontend
       run: yarn install
     - name: Run unit test
+      working-directory: ./frontend
       run: yarn test
