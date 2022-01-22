@@ -13,12 +13,13 @@ Kanji words visualization graph
   - `Dockerfile`
 - `docker-compose.yml`
 
-docker-compose builds `frontend/Dockerfile` and `backend/Dockerfile`, and run them.
+docker-compose builds `frontend/Dockerfile` and `backend/Dockerfile`, and runs them.
 
 
 ## Setup to develop inside Docker
 
-1. Install Docker Desktop on your PC.
+### Mac, Windows
+1. [Install Docker Desktop](https://docs.docker.com/desktop/).
 
 2. Start Docker Desktop.
 
@@ -28,16 +29,36 @@ docker-compose builds `frontend/Dockerfile` and `backend/Dockerfile`, and run th
    cd kanji-visualization
    ```
 
-4. Execute Docker Compose.
+4. Run Docker Compose.
    ```sh
-   docker compose up
+   docker-compose up
    ```
 
    This will start the frontend and backend server automatically.
    Now, you can start to develop inside Docker.
    
-   The Web app can be viewed at http://localhost:3000.
+   The app can be viewed at http://localhost:3000.
 
+### Linux
+1. [Install Docker Engine](https://docs.docker.com/engine/install/).
+
+2. [Install Docker Compose](https://docs.docker.com/compose/install/#install-compose-on-linux-systems).
+
+3. Clone the repository.
+   ```sh
+   git clone https://github.com/ani-hovhannisyan/kanji-visualization.git
+   cd kanji-visualization
+   ```
+
+4. Run Docker Compose.
+   ```sh
+   docker-compose up
+   ```
+
+   This will start the frontend and backend server automatically.
+   Now, you can start to develop inside Docker.
+   
+   The app can be viewed at http://localhost:3000.
 
 ## Setup to develop on your local PC
 
@@ -84,4 +105,4 @@ docker-compose builds `frontend/Dockerfile` and `backend/Dockerfile`, and run th
    These will start the frontend and backend server respectively.
    Now, you can start to develop on your local PC without Docker.
    
-   The Web app can be viewed at http://localhost:3000.
+   The app can be viewed at http://localhost:3000.
