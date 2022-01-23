@@ -1,0 +1,20 @@
+# dependencies
+/frontend/node_modules
+
+# production
+/frontend/build
+
+# cache
+/backend/__pycache__
+/backend/.mypy_cache
+/backend/.pytest_cache
+
+# misc
+/frontend/.env.local
+/frontend/.env.development.local
+/frontend/.env.test.local
+/frontend/.env.production.local
+
+/frontend/npm-debug.log*
+/frontend/yarn-debug.log*
+/frontend/yarn-error.log*
