@@ -12,8 +12,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
       - name: setup
-        working-directory: ./frontend
-        run: actions/setup-node@v2
+        uses: actions/setup-node@v2
       - name: Install depencies
         working-directory: ./frontend
         run: npm install
