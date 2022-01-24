@@ -16,5 +16,8 @@ jobs:
       - name: Install depencies
         working-directory: ./frontend
         run: npm install
+      - name: Install depencies
+        working-directory: ./backend
+        run: pip install -r requirements.txt
       - name: pre commit run
         uses: pre-commit/action@v2.0.3
