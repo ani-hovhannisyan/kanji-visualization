@@ -16,5 +16,3 @@ jobs:
       - name: Install depencies
         working-directory: ./frontend
         run: npm install
-      - name: pre commit run
-        uses: pre-commit/action@v2.0.3
