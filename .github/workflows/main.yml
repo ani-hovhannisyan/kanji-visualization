@@ -2,10 +2,8 @@ name: Docker Image CI
 
 on:
   push:
-  pull_request:
 
 jobs:
-
   run-test:
     name: Run Test
     runs-on: ubuntu-latest
