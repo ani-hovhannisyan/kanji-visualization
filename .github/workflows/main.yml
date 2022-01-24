@@ -15,6 +15,5 @@ jobs:
     - name: Install depencies
       working-directory: ./frontend
       run: yarn install
-    - name: Run unit test
-      working-directory: ./frontend
-      run: yarn jest
+    - name: pre commit run
+      uses: pre-commit/action@v2.0.3
