@@ -36,7 +36,7 @@ docker-compose builds `frontend/Dockerfile` and `backend/Dockerfile`, and runs t
 
    This will start the frontend and backend server automatically.
    Now, you can start to develop inside Docker.
-   
+
    The app can be viewed at http://localhost:3000.
 
 ### Linux
@@ -57,7 +57,7 @@ docker-compose builds `frontend/Dockerfile` and `backend/Dockerfile`, and runs t
 
    This will start the frontend and backend server automatically.
    Now, you can start to develop inside Docker.
-   
+
    The app can be viewed at http://localhost:3000.
 
 ## Setup to develop on your local PC
@@ -95,7 +95,7 @@ docker-compose builds `frontend/Dockerfile` and `backend/Dockerfile`, and runs t
    cd backend
    uvicorn main:app --reload --host 0.0.0.0 --port 8000
    ```
-   
+
    for React server:
    ```sh
    cd frontend
@@ -104,5 +104,5 @@ docker-compose builds `frontend/Dockerfile` and `backend/Dockerfile`, and runs t
 
    These will start the frontend and backend server respectively.
    Now, you can start to develop on your local PC without Docker.
-   
+
    The app can be viewed at http://localhost:3000.
