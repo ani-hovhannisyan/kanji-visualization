@@ -5,7 +5,7 @@ on:
 
 jobs:
   run-test:
-    name: Run Test
+    name: Run Test on Scratch
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -21,3 +21,9 @@ jobs:
         run: python -m pip install -r requirements.txt
       - name: pre commit run
         uses: pre-commit/action@v2.0.3
+      - name: test frontend
+        working-directory: ./frontend
+        run: frontend yarn test --watchAll=false
+      - name: test backend
+        working-directory: ./backend
+        run: pytest

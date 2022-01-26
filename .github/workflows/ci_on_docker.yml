@@ -10,8 +10,9 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v2
+      # -d でバックグラウンド実行
       - name: docker build
-        run: docker-compose up
+        run: docker-compose up -d
       - name: frontend test
         run: docker-compose exec frontend yarn test --watchAll=false
       - name: backend test
