@@ -17,7 +17,7 @@ services:
       dockerfile: ./frontend/Dockerfile
     container_name: frontend
     tty: true
-    env_file: .env.development
+    env_file: ./frontend/.env.development
     ports:
       - 3000:3000
     volumes:
