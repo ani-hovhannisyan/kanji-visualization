@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Normal CI
 
 on:
   push:
@@ -8,10 +8,16 @@ jobs:
     name: Run Test
     runs-on: ubuntu-latest
     steps:
-    - name: checkout
-      uses: actions/checkout@v2
-    - name: Install depencies
-      working-directory: ./frontend
-      run: yarn install
-    - name: pre commit run
-      uses: pre-commit/action@v2.0.3
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: Install yarn
+        working-directory: ./frontend
+        run: npm install -g yarn
+      - name: Install yarn packages
+        working-directory: ./frontend
+        run: yarn install
+      - name: Install pip packages
+        working-directory: ./backend
+        run: python -m pip install -r requirements.txt
+      - name: pre commit run
+        uses: pre-commit/action@v2.0.3

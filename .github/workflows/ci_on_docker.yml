@@ -1,0 +1,18 @@
+name: Docker Image CI
+
+on:
+  push:
+
+jobs:
+  run-test:
+    name: Run Test on Docker
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: docker build
+        run: docker-compose up
+      - name: frontend test
+        run: docker-compose exec frontend yarn test --watchAll=false
+      - name: backend test
+        run: docker-compose exec backend pytest
