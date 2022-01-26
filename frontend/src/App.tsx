@@ -6,9 +6,10 @@ function App() {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    console.log(
-      `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}`
-    );
+    if (!process.env.REACT_APP_API_URL || !process.env.REACT_APP_API_PORT) {
+      console.error("URL of API is undefined");
+      return;
+    }
 
     fetch(
       `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}`,
@@ -21,7 +22,8 @@ function App() {
       }
     )
       .then((res) => res.json())
-      .then((data) => setMessage(data.message));
+      .then((data) => setMessage(data.message))
+      .catch((err) => console.error(err));
   }, []);
 
   return (
