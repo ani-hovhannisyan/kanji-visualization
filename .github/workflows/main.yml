@@ -23,7 +23,7 @@ jobs:
         uses: pre-commit/action@v2.0.3
       - name: test frontend
         working-directory: ./frontend
-        run: frontend yarn test --watchAll=false
+        run: yarn test --watchAll=false
       - name: test backend
         working-directory: ./backend
         run: pytest
