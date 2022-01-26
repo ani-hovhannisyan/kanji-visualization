@@ -2,29 +2,17 @@ version: "3"
 services:
   backend:
     image: 785741758597.dkr.ecr.us-east-1.amazonaws.com/kanji-visualization/backend
-    build:
-      context: .
-      dockerfile: ./backend/Dockerfile
     container_name: backend
     tty: true
     ports:
       - 8000:8000
-    volumes:
-      - .:/app
-      - node_modules:/app/frontend/node_modules
   frontend:
     image: 785741758597.dkr.ecr.us-east-1.amazonaws.com/kanji-visualization/frontend
-    build:
-      context: .
-      dockerfile: ./frontend/Dockerfile
     container_name: frontend
     tty: true
     env_file: .env.development
     ports:
       - 3000:3000
-    volumes:
-      - .:/app
-      - node_modules:/app/frontend/node_modules
     depends_on:
       - backend
 volumes:
