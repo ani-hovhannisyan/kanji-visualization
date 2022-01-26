@@ -1,0 +1,43 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.1.0
+    hooks:
+    -   id: trailing-whitespace
+    -   id: end-of-file-fixer
+    -   id: check-yaml
+-   repo: https://gitlab.com/pycqa/flake8
+    rev: 4.0.1
+    hooks:
+    -   id: flake8
+        name: "backend  | flake8"
+        files: backend/
+-   repo: https://github.com/psf/black
+    rev: 21.12b0
+    hooks:
+    -   id: black
+        name: "backend  | black"
+        files: backend/
+-   repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v0.931
+    hooks:
+    -   id: mypy
+        name: "backend  | mypy"
+        files: backend/
+        additional_dependencies: [pytest==6.2.5]
+-   repo: local
+    hooks:
+    -   id: prettier
+        name: "frontend | prettier"
+        files: frontend/
+        language: system
+        entry: bash -c 'cd frontend && yarn format'
+-   repo: local
+    hooks:
+    -   id: eslint
+        name: "frontend | eslint"
+        files: frontend/
+        language: system
+        entry: bash -c 'cd frontend && yarn lint'
+        verbose: true
