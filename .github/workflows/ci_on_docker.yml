@@ -13,7 +13,9 @@ jobs:
       # -d でバックグラウンド実行
       - name: docker build
         run: docker-compose up -d
+      # -Tは no TTY への対策
       - name: frontend test
-        run: docker-compose exec frontend yarn test --watchAll=false
+        run: docker-compose exec -T frontend yarn test --watchAll=false
+      # -Tは no TTY への対策
       - name: backend test
         run: docker-compose exec backend pytest
