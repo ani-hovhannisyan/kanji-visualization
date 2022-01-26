@@ -1,0 +1,22 @@
+name: Docker Image CI
+
+on:
+  push:
+
+jobs:
+  run-test:
+    name: Run Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: setup
+        uses: actions/setup-node@v2
+      - name: Install depencies
+        working-directory: ./frontend
+        run: npm install
+      - name: Install depencies
+        working-directory: ./backend
+        run: pip install -r requirements.txt
+      - name: pre commit run
+        uses: pre-commit/action@v2.0.3
