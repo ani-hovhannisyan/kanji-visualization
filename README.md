@@ -1,5 +1,6 @@
 # kanji-visualization
 Kanji words visualization graph
+For more information about structure and functionality, see the docs directory.
 
 ## Directory Structure
 
@@ -113,6 +114,12 @@ While the server is running, any changes you make to the source code will be ref
 
    These will start the frontend and backend server respectively.
    Now, you can start developing on your local PC without Docker.
+
+7. For testing, run:
+
+   ```sh
+   $ pytest
+   ```
 
 The app can be viewed at http://localhost:3000.
 
