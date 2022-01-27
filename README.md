@@ -16,7 +16,7 @@ Kanji words visualization graph
 docker-compose builds `frontend/Dockerfile` and `backend/Dockerfile`, and runs them.
 
 
-## Setup to develop inside Docker
+## Setup for development with Docker
 
 ### Mac, Windows
 1. [Install Docker Desktop](https://docs.docker.com/desktop/).
@@ -35,9 +35,7 @@ docker-compose builds `frontend/Dockerfile` and `backend/Dockerfile`, and runs t
    ```
 
    This will start the frontend and backend server automatically.
-   Now, you can start to develop inside Docker.
-
-   The app can be viewed at http://localhost:3000.
+   Now, you can start developing with Docker.
 
 ### Linux
 1. [Install Docker Engine](https://docs.docker.com/engine/install/).
@@ -56,12 +54,18 @@ docker-compose builds `frontend/Dockerfile` and `backend/Dockerfile`, and runs t
    ```
 
    This will start the frontend and backend server automatically.
-   Now, you can start to develop inside Docker.
+   Now, you can start developing with Docker.
 
-   The app can be viewed at http://localhost:3000.
+The app can be viewed at http://localhost:3000.
 
-## Setup to develop on your local PC
+While the server is running, any changes you make to the source code will be reflected on the screen in real time.
 
+## Setup for development without Docker
+### Requirements
+- Node.js >= 14.0.0
+- Python >= 3.6
+
+### Steps
 1. Install Python and Node.js.
 
 2. Install yarn.
@@ -77,32 +81,39 @@ docker-compose builds `frontend/Dockerfile` and `backend/Dockerfile`, and runs t
 
 4. Install dependencies.
 
-   for Python dependencies:
+   Python dependencies:
    ```sh
    pip install -r ./backend/requirements.txt
    ```
 
-   for Node.js dependencies:
+   Node.js dependencies:
    ```sh
    cd frontend
    yarn install
    ```
 
-5. Start servers.
+5. Setup [pre-commit hooks](https://pre-commit.com/index.html).
+   ```
+   pre-commit install
+   ```
 
-   for FastAPI server:
+6. Start servers.
+
+   FastAPI server:
    ```sh
    cd backend
    uvicorn main:app --reload --host 0.0.0.0 --port 8000
    ```
 
-   for React server:
+   React server:
    ```sh
    cd frontend
    yarn start
    ```
 
    These will start the frontend and backend server respectively.
-   Now, you can start to develop on your local PC without Docker.
+   Now, you can start developing on your local PC without Docker.
 
-   The app can be viewed at http://localhost:3000.
+The app can be viewed at http://localhost:3000.
+
+While the server is running, any changes you make to the source code will be reflected on the screen in real time.
