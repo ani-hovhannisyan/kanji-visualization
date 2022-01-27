@@ -1,0 +1,21 @@
+name: Docker Image CI
+
+on:
+  push:
+
+jobs:
+  run-test:
+    name: Run Test on Docker
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      # -d でバックグラウンド実行
+      - name: docker build
+        run: docker-compose up -d
+      # -Tは no TTY への対策
+      - name: frontend test
+        run: docker-compose exec -T -e CI=true frontend yarn test
+      # -Tは no TTY への対策
+      - name: backend test
+        run: docker-compose exec -T backend pytest

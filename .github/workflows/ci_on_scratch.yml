@@ -1,0 +1,26 @@
+name: Normal CI
+
+on:
+  push:
+
+jobs:
+  run-test:
+    name: Run Test on Scratch
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: Install yarn packages
+        working-directory: ./frontend
+        run: yarn install --frozen-lockfile
+      - name: Install pip packages
+        working-directory: ./backend
+        run: python -m pip install -r requirements.txt
+      - name: pre commit run
+        uses: pre-commit/action@v2.0.3
+      - name: test frontend
+        working-directory: ./frontend
+        run: CI=true yarn test
+      - name: test backend
+        working-directory: ./backend
+        run: pytest
