@@ -15,7 +15,7 @@ jobs:
         run: docker-compose up -d
       # -Tは no TTY への対策
       - name: frontend test
-        run: docker-compose exec -T frontend yarn test --watchAll=false
+        run: docker-compose exec -T -e CI=true frontend yarn test
       # -Tは no TTY への対策
       - name: backend test
         run: docker-compose exec -T backend pytest
