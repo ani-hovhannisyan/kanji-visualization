@@ -1,5 +1,6 @@
 # kanji-visualization
 Kanji words visualization graph
+For more information about structure and functionality, see the docs directory.
 
 ## Directory Structure
 
