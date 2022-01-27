@@ -10,9 +10,6 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v2
-      - name: Install yarn
-        working-directory: ./frontend
-        run: npm install -g yarn
       - name: Install yarn packages
         working-directory: ./frontend
         run: yarn install --frozen-lockfile
