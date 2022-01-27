@@ -38,7 +38,7 @@ docker-compose builds `frontend/Dockerfile` and `backend/Dockerfile`, and runs t
 
    This will start the frontend and backend server automatically.
    Now, you can start developing with Docker.
-   
+
    The app can be viewed at http://localhost:3000.
 
    While the server is running, any changes you make to the source code will be reflected on the screen in real time.
@@ -98,7 +98,7 @@ docker-compose builds `frontend/Dockerfile` and `backend/Dockerfile`, and runs t
    yarn install
    ```
 
-5. Setup [pre-commit hooks](https://pre-commit.com/index.html).
+5. Setup [pre-commit](https://pre-commit.com/index.html).
    ```sh
    pre-commit install
    ```
@@ -146,8 +146,10 @@ Here is an example of the result.
 <img width="586" alt="pre-commit hooks" src="https://user-images.githubusercontent.com/35371161/150695876-3383ca2c-0d0e-4424-8f61-40c28fd95900.png">
 </p>
 
-If all processes are passed or skipped, then `commit` will be executed as usual. 
+If all processes are passed or skipped, then `commit` will be executed as usual.
 However, if any errors occur, `commit` will be terminated. In that case, you have to fix the error, then `git add` the change, and `git commit` it again.
+
+For more information on the pre-commit, please see [here](https://pre-commit.com/index.html).
 
 The above pre-commit hooks are automatically executed on each commit, but you can also execute them manually by the following commands.
 
