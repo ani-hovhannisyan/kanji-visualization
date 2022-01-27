@@ -2,6 +2,9 @@ name: Normal CI
 
 on:
   push:
+  pull_request:
+  # Manual run
+  workflow_dispatch:
 
 jobs:
   run-test:
