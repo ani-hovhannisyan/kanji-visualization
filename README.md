@@ -38,6 +38,10 @@ docker-compose builds `frontend/Dockerfile` and `backend/Dockerfile`, and runs t
 
    This will start the frontend and backend server automatically.
    Now, you can start developing with Docker.
+   
+   The app can be viewed at http://localhost:3000.
+
+   While the server is running, any changes you make to the source code will be reflected on the screen in real time.
 
 ### Linux
 1. [Install Docker Engine](https://docs.docker.com/engine/install/).
@@ -58,9 +62,9 @@ docker-compose builds `frontend/Dockerfile` and `backend/Dockerfile`, and runs t
    This will start the frontend and backend server automatically.
    Now, you can start developing with Docker.
 
-The app can be viewed at http://localhost:3000.
+   The app can be viewed at http://localhost:3000.
 
-While the server is running, any changes you make to the source code will be reflected on the screen in real time.
+   While the server is running, any changes you make to the source code will be reflected on the screen in real time.
 
 ## Setup for development without Docker
 ### Requirements
@@ -116,9 +120,9 @@ While the server is running, any changes you make to the source code will be ref
    These will start the frontend and backend server respectively.
    Now, you can start developing on your local PC without Docker.
 
-The app can be viewed at http://localhost:3000.
+   The app can be viewed at http://localhost:3000.
 
-While the server is running, any changes you make to the source code will be reflected on the screen in real time.
+   While the server is running, any changes you make to the source code will be reflected on the screen in real time.
 
 ## Development
 ### Commit changes
