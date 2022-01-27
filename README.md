@@ -1,6 +1,5 @@
 # kanji-visualization
 Kanji words visualization graph
-For more information about structure and functionality, see the docs directory.
 
 ## Directory Structure
 
@@ -94,7 +93,7 @@ While the server is running, any changes you make to the source code will be ref
    ```
 
 5. Setup [pre-commit hooks](https://pre-commit.com/index.html).
-   ```
+   ```sh
    pre-commit install
    ```
 
@@ -115,12 +114,82 @@ While the server is running, any changes you make to the source code will be ref
    These will start the frontend and backend server respectively.
    Now, you can start developing on your local PC without Docker.
 
-7. For testing, run:
-
-   ```sh
-   $ pytest
-   ```
-
 The app can be viewed at http://localhost:3000.
 
 While the server is running, any changes you make to the source code will be reflected on the screen in real time.
+
+## Development
+### Commit changes
+When you make changes to the source files and run `git commit`, pre-commit hooks will automatically run the following tools.
+
+<table align='center'>
+<tr>
+<th></th><th align='center'>Linter</th><th align='center'>Formatter</th><th align='center'>Static Type Checker</th>
+</tr>
+<tr>
+<th>Backend</th><td align='center'>flake8</td><td align='center'>black</td><td align='center'>mypy</td>
+</tr>
+<tr>
+<th>Frontend</th><td align='center'>ESLint</td><td align='center'>Prettier</td><td align='center'>(ESLint)</td>
+</tr>
+</table>
+
+Here is an example of the result.
+
+<p align="center">
+<img width="586" alt="pre-commit hooks" src="https://user-images.githubusercontent.com/35371161/150695876-3383ca2c-0d0e-4424-8f61-40c28fd95900.png">
+</p>
+
+If all processes are passed or skipped, then `commit` will be executed as usual. 
+However, if any errors occur, `commit` will be terminated. In that case, you have to fix the error, then `git add` the change, and `git commit` it again.
+
+The above pre-commit hooks are automatically executed on each commit, but you can also execute them manually by the following commands.
+
+- Run flake8
+  ```
+  cd backend
+  flake8 .
+  ```
+
+- Run black
+  ```
+  cd backend
+  black .
+  ```
+
+- Run mypy
+  ```
+  cd backend
+  mypy .
+  ```
+
+- Run ESLint
+  ```
+  cd frontend
+  yarn lint
+  ```
+
+- Run Prettier
+  ```
+  cd frontend
+  yarn format
+  ```
+
+### Test and push changes
+Before you run `git push`, please make sure your changes pass the tests.
+
+If you have updated the **backend** source code, please run
+```sh
+cd backend
+pytest
+```
+
+Or if you have updated the **frontend** source code, please run
+```sh
+cd frontend
+yarn test --watchAll=false
+```
+
+If all tests are passed, you can run `git push`.
+
+After pushing the changes, CI/CD will automatically be executed on [GitHub Actions](https://github.com/ani-hovhannisyan/kanji-visualization/actions).
