@@ -110,6 +110,11 @@ docker-compose builds `frontend/Dockerfile` and `backend/Dockerfile`, and runs t
    cd backend
    uvicorn main:app --reload --host 0.0.0.0 --port 8000
    ```
+   or just
+   ```sh
+   cd backend
+   ./start-server.sh
+   ```
 
    React server:
    ```sh
@@ -154,31 +159,31 @@ For more information on the pre-commit, please see [here](https://pre-commit.com
 The above pre-commit hooks are automatically executed on each commit, but you can also execute them manually by the following commands.
 
 - Run flake8
-  ```
+  ```sh
   cd backend
   flake8 .
   ```
 
 - Run black
-  ```
+  ```sh
   cd backend
   black .
   ```
 
 - Run mypy
-  ```
+  ```sh
   cd backend
   mypy .
   ```
 
 - Run ESLint
-  ```
+  ```sh
   cd frontend
   yarn lint
   ```
 
 - Run Prettier
-  ```
+  ```sh
   cd frontend
   yarn format
   ```
@@ -196,6 +201,11 @@ Or if you have updated the **frontend** source code, please run
 ```sh
 cd frontend
 yarn test --watchAll=false
+```
+or just
+```sh
+cd frontend
+./test.sh
 ```
 
 If all tests are passed, you can run `git push`.
