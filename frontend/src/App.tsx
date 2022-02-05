@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import SearchField from "./SearchField/SearchField";
 
-type kanjiInfo = {
+export type kanjiInfo = {
   onyomi: string;
   kunyomi: string;
 };
 
-type graphInfo = {
+export type graphInfo = {
   graph: any;
 };
 
