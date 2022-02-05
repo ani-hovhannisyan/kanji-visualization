@@ -20,3 +20,13 @@ class GraphController:
         matrix = []
         # TODO: Implement logic
         return matrix
+
+    @staticmethod
+    def get_graph_matrix(kanji: str):
+        # TODO: return acutual value
+        try:
+            graph_matrix = {"mainNode": "山", "subNodes": ["登", "水", "脈"]}
+            return [True, None, graph_matrix]
+        except Exception:
+            error_info = {"status_code": 400, "detail": "山 is not in data base"}
+            return [False, error_info, None]

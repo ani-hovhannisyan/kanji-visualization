@@ -1,4 +1,9 @@
 {
   "prettier.configPath": "./frontend/.prettierrc.json",
   "prettier.ignorePath": "./frontend/.gitignore",
+  "python.analysis.extraPaths": [
+    "./backend/controller"
+  ],
+  "python.linting.flake8Enabled": true,
+  "python.linting.enabled": true,
 }

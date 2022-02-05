@@ -1,48 +1,26 @@
-import React, { useEffect, useState } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import React, { useState } from "react";
+import SearchField from "./SearchField/SearchField";
+
+export type KanjiType = {
+  onyomi: string;
+  kunyomi: string;
+};
+
+//TODO: change correctly
+export type GraphType = {
+  mainNode: string;
+  subNodes: string[];
+};
 
 function App() {
-  const [message, setMessage] = useState("");
-
-  useEffect(() => {
-    if (!process.env.REACT_APP_API_URL || !process.env.REACT_APP_API_PORT) {
-      console.error("URL of API is undefined");
-      return;
-    }
-
-    fetch(
-      `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        mode: "cors",
-      }
-    )
-      .then((res) => res.json())
-      .then((data) => setMessage(data.message))
-      .catch((err) => console.error(err));
-  }, []);
-
+  const [kanji, setKanji] = useState<undefined | KanjiType>();
+  const [graph, setGraph] = useState<undefined | GraphType>();
+  console.log(kanji);
+  console.log(graph);
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>{message}</h1>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Kanji Visualizer</h1>
+      <SearchField setKanji={setKanji} setGraph={setGraph}></SearchField>
     </div>
   );
 }
