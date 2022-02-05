@@ -53,15 +53,15 @@
     {
       "id": "山",
       "isMain": true,
-      "onyomi": "サン",
-      "kunyomi": "ヤマ",
-      "meaning": "mountain"
+      "onyomi": ["サン", "セン"],
+      "kunyomi": ["ヤマ"],
+      "meaning": ["mountain"]
     },
     {
       "id": "登",
-      "onyomi": "ト",
-      "kunyomi": "ノボる",
-      "meaning": "climb up"
+      "onyomi": ["ト", "トウ"],
+      "kunyomi": ["ノボる"],
+      "meaning": ["ascend", "climb up"]
     }
   ]
 }
