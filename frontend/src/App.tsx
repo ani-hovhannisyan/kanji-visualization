@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="App">
       <h1>Kanji Visualizer</h1>
-      <GraphView />
+      <GraphView graphData={{}} />
     </div>
   );
 }
