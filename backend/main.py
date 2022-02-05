@@ -30,13 +30,11 @@ def read_kanji_vlsualize(kanji: str):
     if not is_success:
         raise HTTPException(**error_info)
 
-    is_success, error_info, graph_matrix = GraphController.get_graph_matrix(
-        kanji)
+    is_success, error_info, graph_matrix = GraphController.get_graph_matrix(kanji)
     if not is_success:
         raise HTTPException(**error_info)
 
-    is_success, error_info, kanji_info = InfoController.get_kanji_info(
-        kanji)
+    is_success, error_info, kanji_info = InfoController.get_kanji_info(kanji)
     if not is_success:
         raise HTTPException(**error_info)
 

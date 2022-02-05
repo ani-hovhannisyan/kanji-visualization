@@ -22,13 +22,13 @@ class SearchController:
         else:
             return SearchController._create_result(True)
 
-    def _create_result(is_success: bool, status: int = None,
-                       detail: str = None):
-        error_info = None if is_success else {"status_code": status,
-                                              "detail": detail}
+    @staticmethod
+    def _create_result(is_success: bool, status: int = None, detail: str = None):
+        error_info = None if is_success else {"status_code": status, "detail": detail}
 
         return [is_success, error_info]
 
+    @staticmethod
     def _is_kanji(kanji):
         p = re.compile(
             "[\u2E80-\u2FDF\u3005-\u3007\u3400-\u4DBF"

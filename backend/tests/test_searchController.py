@@ -9,8 +9,7 @@ def test_normal():
 def test_invalid1():
     is_success, error_info = SearchController.check_input("a")
     assert is_success
-    assert error_info == {"status_code": 400,
-                          "detail": "Only Kanji is permitted"}
+    assert error_info == {"status_code": 400, "detail": "Only Kanji is permitted"}
 
 
 def test_invalid2():
@@ -25,5 +24,4 @@ def test_invalid2():
 def test_invalid3():
     is_success, error_info = SearchController.check_input("登山")
     assert is_success
-    assert error_info == {"status_code": 400,
-                          "detail": "Only one character is allowed"}
+    assert error_info == {"status_code": 400, "detail": "Only one character is allowed"}
