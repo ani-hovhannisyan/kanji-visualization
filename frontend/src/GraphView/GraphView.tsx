@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import ForceGraph2D, { NodeObject } from "react-force-graph-2d";
+import graphData from "./sampleData.json";
 
 interface Props {
   graphData: any;
@@ -16,7 +17,7 @@ const GraphView: React.VFC<Props> = (props) => {
     <ForceGraph2D
       height={400}
       ref={ref}
-      graphData={props.graphData}
+      graphData={graphData}
       onNodeClick={handleNodeClick}
       linkDirectionalArrowLength={8}
       linkDirectionalArrowRelPos={0.8}
