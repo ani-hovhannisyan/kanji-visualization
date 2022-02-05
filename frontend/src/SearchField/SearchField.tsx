@@ -50,7 +50,7 @@ const SearchField = (props: Props) => {
       <div style={{ display: "flex" }}>
         <input type="text" value={kanjiInput} onChange={handleKanjiChange} />
         <button type="submit" onClick={handleSubmit} disabled={!!error}>
-          提出{" "}
+          Search
         </button>
       </div>
       <div>{error}</div>
