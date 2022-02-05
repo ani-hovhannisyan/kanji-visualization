@@ -1,56 +1,60 @@
 import React, { JSXElementConstructor, useEffect, useState } from "react";
 import axios, { AxiosRequestConfig, AxiosResponse, AxiosError } from "axios";
-import { kanjiInfo, graphInfo } from "../App";
-
-import { useForm, SubmitHandler } from "react-hook-form";
-
-type kanjiVisualizeResponse = {
-  kanji: kanjiInfo;
-  graph: graphInfo;
-};
 
 type Props = {
   setKanji: any;
   setGraph: any;
 };
 
-type Inputs = {
-  kanji: string;
-};
-
+const regexp = /([\u{3005}\u{3007}\u{303b}\u{3400}-\u{9FFF}\u{F900}-\u{FAFF}\u{20000}-\u{2FFFF}][\u{E0100}-\u{E01EF}\u{FE00}-\u{FE02}]?)/mu;
 const SearchField = (props: Props) => {
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
+  const [kanjiInput, setKanjiInput] = useState<string>("");
+  const [error, setError] = useState<string>("Fill form");
+
+  const handleKanjiChange =(event: { target: { value: any; }; }) =>{
+    const input = event.target.value
+    if(typeof input != "string"){
+      setError("Invalid Input")
+    }
+    else if (input.length != 1){
+      setError("Only one character is allowed")
+    }
+    else if (!regexp.test(input)){
+      setError("Input Only Kanji")
+    }
+    else{
+      setError("")
+    }
+    setKanjiInput(input)
+  }
+
+  const handleSubmit = () => {
     axios
-      .post(
-        `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}/kanji-visualize`,
-        { data }
+      .get(
+        `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}/kanji-visualize?kanji=${kanjiInput}`,
       )
-      .then((res: AxiosResponse<kanjiVisualizeResponse>) => {
+      .then((res) => {
+        console.log(res)
         const { data, status } = res;
-        console.log(status);
-        props.setKanji(data.kanji);
-        props.setGraph(data.graph);
+        props.setKanji(data.kanjiInfo);
+        props.setGraph(data.graphMatrix);
       })
-      .catch((error: AxiosError<any>) => {
-        console.log(error);
+      .catch((error) => {
+        console.log(error.response)
+        setError(error.response.data.detail)
       });
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input defaultValue="test" {...register("kanji")} />
-
-      {errors.exampleRequired && <span>This field is required</span>}
-
-      <input type="submit" />
-    </form>
+    <div>
+      <h2>Input Kanji</h2>
+      <div style={{display:"flex"}}>
+        <input type="text"  value={kanjiInput} onChange={handleKanjiChange} />
+        <button type="submit" onClick={handleSubmit} disabled={!(!error)} >提出 </button>
+      </div>
+      <div>{error}</div>
+    </div>
   );
 };
 

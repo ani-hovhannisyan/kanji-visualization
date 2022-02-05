@@ -1,4 +1,7 @@
 {
   "prettier.configPath": "./frontend/.prettierrc.json",
   "prettier.ignorePath": "./frontend/.gitignore",
+  "python.analysis.extraPaths": [
+    "./backend/controller"
+  ],
 }

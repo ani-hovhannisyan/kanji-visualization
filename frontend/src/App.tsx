@@ -1,19 +1,21 @@
+import { ListenOptions } from "net";
 import React, { useEffect, useState } from "react";
 import SearchField from "./SearchField/SearchField";
 
-export type kanjiInfo = {
+export type KanjiType ={
   onyomi: string;
   kunyomi: string;
-};
+}
 
-export type graphInfo = {
-  graph: any;
-};
+//TODO: change correctly
+export type GraphType = {
+  mainNode: string;
+  subNodes: string[];
+}
 
 function App() {
-  const [kanji, setKanji] = useState<kanjiInfo>();
-  const [graph, setGraph] = useState<graphInfo>();
-
+  const [kanji, setKanji] = useState< undefined | KanjiType>();
+  const [graph, setGraph] = useState< undefined | GraphType>();
   return (
     <div className="App">
       <h1>Kanji Visualizer</h1>
