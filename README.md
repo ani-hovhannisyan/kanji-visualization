@@ -17,6 +17,11 @@ For more information about structure and functionality, see the docs directory.
 
 docker-compose builds `frontend/Dockerfile` and `backend/Dockerfile`, and runs them.
 
+## Draft of Class Diagram
+
+![alt text](https://github.com/ani-hovhannisyan/kanji-visualization/blob/fdeff89db81c15989dbae1f515187c167fcf3384/docs/Class%20Diagram.png)
+
+Where Controllers are considered to be in backend, and Views are in frontend.
 
 ## Setup for development with Docker
 
