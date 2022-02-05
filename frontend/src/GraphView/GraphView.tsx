@@ -1,9 +1,21 @@
 import React, { useRef } from "react";
 import ForceGraph2D, { NodeObject } from "react-force-graph-2d";
-import graphData from "./sampleData.json";
+import testData from "./testData.json";
+
+interface ExtendedNodeObject extends NodeObject {
+  isMain?: boolean;
+}
+
+interface GraphData {
+  nodes?: ExtendedNodeObject[];
+  links?: {
+    source: string;
+    target: string;
+  }[];
+}
 
 interface Props {
-  graphData: any;
+  graphData?: GraphData;
 }
 
 const GraphView: React.VFC<Props> = (props) => {
@@ -17,11 +29,11 @@ const GraphView: React.VFC<Props> = (props) => {
     <ForceGraph2D
       height={400}
       ref={ref}
-      graphData={graphData}
+      graphData={testData}
       onNodeClick={handleNodeClick}
       linkDirectionalArrowLength={8}
       linkDirectionalArrowRelPos={0.8}
-      nodeCanvasObject={(node: any, ctx, globalScale) => {
+      nodeCanvasObject={(node: ExtendedNodeObject, ctx, globalScale) => {
         if (node.isMain) {
           node.x = 0;
           node.y = 0;
@@ -31,18 +43,18 @@ const GraphView: React.VFC<Props> = (props) => {
 
         ctx.fillStyle = node.isMain ? "#2196f3" : "#3d5afe";
         ctx.beginPath();
-        ctx.arc(node.x, node.y, size, 0, 2 * Math.PI);
+        ctx.arc(node.x || 0, node.y || 0, size, 0, 2 * Math.PI);
         ctx.closePath();
         ctx.fill();
 
-        const label = node.id;
+        const label = node.id as string;
         const fontSize = size;
 
         ctx.font = `${fontSize}px Sans-Serif`;
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
         ctx.fillStyle = "white";
-        ctx.fillText(label, node.x, node.y);
+        ctx.fillText(label, node.x || 0, node.y || 0);
       }}
     />
   );
