@@ -1,5 +1,5 @@
 import pathmagic  # noqa: F401
-from main import read_root, read_kanji_vlsualize
+from main import read_root
 
 
 def test_read_root():

@@ -1,5 +1,4 @@
 from fastapi import HTTPException
-from logging import error
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from controller.SearchController import SearchController
@@ -29,13 +28,15 @@ def read_kanji_vlsualize(kanji: str):
     is_success, error_info = SearchController.check_input(kanji)
     print(error_info)
     if not is_success:
-        raise  HTTPException(**error_info)
+        raise HTTPException(**error_info)
 
-    is_success, error_info, graph_matrix = GraphController.get_graph_matrix(kanji)
+    is_success, error_info, graph_matrix = GraphController.get_graph_matrix(
+        kanji)
     if not is_success:
         raise HTTPException(**error_info)
 
-    is_success, error_info, kanji_info = InfoController.get_kanji_info(kanji)
+    is_success, error_info, kanji_info = InfoController.get_kanji_info(
+        kanji)
     if not is_success:
         raise HTTPException(**error_info)
 
