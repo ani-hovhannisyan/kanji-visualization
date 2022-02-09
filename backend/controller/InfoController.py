@@ -6,7 +6,6 @@ class InfoController:
         # TODO: return acutual value
         query = kanji
         result = jam.lookup(query)
-        print(result)
         index = -1
         for i, c in enumerate(result.chars):
           print(i,c)
@@ -17,7 +16,6 @@ class InfoController:
             for entry in result.entries:
               for kana in entry.to_dict()["kana"]:
                 yomi.append(kana["text"])
-            print(yomi)
             meaning = []
             for mean in result.chars[index].meanings(english_only=True):  # return only English meaning
                 meaning.append(mean)
@@ -28,4 +26,4 @@ class InfoController:
             error_info = ["status_code", 400, "detail","kanji is not in data base"]
             return [False, error_info, None]
 
-print(InfoController.get_kanji_info("人"))
+＃print(InfoController.get_kanji_info("人"))
