@@ -30,7 +30,8 @@ def read_kanji_vlsualize(kanji: str):
     if not is_success:
         raise HTTPException(**error_info)
 
-    is_success, error_info, graph_matrix = GraphController.get_graph_matrix(kanji)
+    # TODO: Think of moving local DB loading to the top of server run
+    is_success, error_info, graph_json = GraphController.get_graph_matrix(kanji)
     if not is_success:
         raise HTTPException(**error_info)
 
@@ -38,4 +39,4 @@ def read_kanji_vlsualize(kanji: str):
     if not is_success:
         raise HTTPException(**error_info)
 
-    return {"graphMatrix": graph_matrix, "kanjiInfo": kanji_info}
+    return {"graphMatrix": graph_json, "kanjiInfo": kanji_info}
