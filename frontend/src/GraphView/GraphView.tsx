@@ -1,20 +1,8 @@
 import React, { useRef } from "react";
 import ForceGraph2D, { NodeObject } from "react-force-graph-2d";
 
-interface ExtendedNodeObject extends NodeObject {
-  isMain?: string;
-}
-
-interface GraphData {
-  nodes: ExtendedNodeObject[];
-  links: {
-    source: string;
-    target: string;
-  }[];
-}
-
 interface Props {
-  graphData: GraphData;
+  graphData?: GraphMatrix;
 }
 
 const GraphView: React.VFC<Props> = (props) => {

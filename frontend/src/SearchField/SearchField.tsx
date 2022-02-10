@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { GraphType, KanjiType } from "../App";
 
 type Props = {
-  setKanji: React.Dispatch<React.SetStateAction<KanjiType | undefined>>;
-  setGraph: React.Dispatch<React.SetStateAction<GraphType | undefined>>;
+  setKanji: React.Dispatch<React.SetStateAction<KanjiInfo | undefined>>;
+  setGraph: React.Dispatch<React.SetStateAction<GraphMatrix | undefined>>;
 };
 
 const regexp =
   /([\u{3005}\u{3007}\u{303b}\u{3400}-\u{9FFF}\u{F900}-\u{FAFF}\u{20000}-\u{2FFFF}][\u{E0100}-\u{E01EF}\u{FE00}-\u{FE02}]?)/mu;
-const SearchField = (props: Props) => {
+
+const SearchField: React.VFC<Props> = (props) => {
   const [kanjiInput, setKanjiInput] = useState<string>("");
   const [error, setError] = useState<string>("Fill form");
 
@@ -33,10 +33,10 @@ const SearchField = (props: Props) => {
         `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}/kanji-visualize?kanji=${kanjiInput}`
       )
       .then((res) => {
-        const { data, status } = res;
-        console.log(status);
-        props.setKanji(data.kanjiInfo);
-        props.setGraph(data.graphMatrix);
+        const { data, status }: { data: ResponseData; status: number } = res;
+        console.log(data, status);
+        props.setKanji(data.info);
+        props.setGraph({ nodes: data.nodes, links: data.links });
       })
       .catch((error) => {
         console.log(error.response);

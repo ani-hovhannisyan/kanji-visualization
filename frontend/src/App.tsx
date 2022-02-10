@@ -2,27 +2,18 @@ import React, { useState } from "react";
 import SearchField from "./SearchField/SearchField";
 import GraphView from "./GraphView/GraphView";
 
-export type KanjiType = {
-  onyomi: string;
-  kunyomi: string;
-};
-
-//TODO: change correctly
-export type GraphType = {
-  mainNode: string;
-  subNodes: string[];
-};
-
 function App() {
-  const [kanji, setKanji] = useState<undefined | KanjiType>();
-  const [graph, setGraph] = useState<undefined | GraphType>();
+  const [kanji, setKanji] = useState<undefined | KanjiInfo>();
+  const [graph, setGraph] = useState<undefined | GraphMatrix>();
+
   console.log(kanji);
   console.log(graph);
+
   return (
     <div className="App">
       <h1>Kanji Visualizer</h1>
       <SearchField setKanji={setKanji} setGraph={setGraph}></SearchField>
-      <GraphView graphData={{}} />
+      <GraphView graphData={graph} />
     </div>
   );
 }
