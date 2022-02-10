@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import SearchField from "./SearchField/SearchField";
-import GraphView from "./GraphView/GraphView";
+import SearchField from "./components/SearchField/SearchField";
+import GraphView from "./components/GraphView/GraphView";
 
 function App() {
   const [kanji, setKanji] = useState<undefined | KanjiInfo>();
