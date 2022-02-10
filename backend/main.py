@@ -39,6 +39,9 @@ def read_kanji_vlsualize(kanji: str):
         raise HTTPException(**error_info)
 
     return {"graphMatrix": graph_matrix, "kanjiInfo": kanji_info}
+<<<<<<< HEAD
 
 print(read_root())
 print(read_kanji_vlsualize("息"))
+=======
+>>>>>>> 2ffd192a409fdeb579bfd1c6573117b78396d8a4

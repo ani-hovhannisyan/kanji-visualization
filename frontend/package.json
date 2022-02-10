@@ -10,8 +10,11 @@
     "@types/node": "^16.7.13",
     "@types/react": "^17.0.20",
     "@types/react-dom": "^17.0.9",
+    "axios": "^0.25.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-force-graph-2d": "^1.23.10",
+    "react-hook-form": "^7.26.0",
     "react-scripts": "5.0.0",
     "typescript": "^4.4.2",
     "web-vitals": "^2.1.0"
@@ -24,6 +27,12 @@
     "lint": "eslint . --ext .js,.ts,.jsx,.tsx --ignore-path .gitignore",
     "format": "prettier --write \"**/*.{js,ts,jsx,tsx,json}\" --ignore-path .gitignore",
     "format:check": "prettier --check \"**/*.{js,ts,jsx,tsx,json}\" --ignore-path .gitignore"
+  },
+  "jest": {
+    "resetMocks": false,
+    "transformIgnorePatterns": [
+      "/node_modules/(?!d3|internmap)"
+    ]
   },
   "browserslist": {
     "production": [
@@ -43,6 +52,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
+    "jest-canvas-mock": "^2.3.1",
     "prettier": "^2.5.1",
     "react-test-renderer": "^17.0.2"
   }
