@@ -1,21 +1,20 @@
 import React, { useRef } from "react";
 import ForceGraph2D, { NodeObject } from "react-force-graph-2d";
-import testData from "./testData.json";
 
 interface ExtendedNodeObject extends NodeObject {
   isMain?: string;
 }
 
 interface GraphData {
-  nodes?: ExtendedNodeObject[];
-  links?: {
+  nodes: ExtendedNodeObject[];
+  links: {
     source: string;
     target: string;
   }[];
 }
 
 interface Props {
-  graphData?: GraphData;
+  graphData: GraphData;
 }
 
 const GraphView: React.VFC<Props> = (props) => {
@@ -29,7 +28,7 @@ const GraphView: React.VFC<Props> = (props) => {
     <ForceGraph2D
       height={400}
       ref={ref}
-      graphData={testData}
+      graphData={props.graphData}
       onNodeClick={handleNodeClick}
       linkDirectionalArrowLength={8}
       linkDirectionalArrowRelPos={0.8}
