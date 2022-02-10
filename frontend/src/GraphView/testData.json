@@ -2,7 +2,7 @@
   "nodes": [
     {
       "id": "山",
-      "isMain": true
+      "isMain": "true"
     },
     {
       "id": "登"
@@ -52,7 +52,7 @@
   "info": [
     {
       "id": "山",
-      "isMain": true,
+      "isMain": "true",
       "onyomi": ["サン", "セン"],
       "kunyomi": ["ヤマ"],
       "meaning": ["mountain"]

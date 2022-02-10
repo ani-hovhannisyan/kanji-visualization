@@ -3,7 +3,7 @@ import ForceGraph2D, { NodeObject } from "react-force-graph-2d";
 import testData from "./testData.json";
 
 interface ExtendedNodeObject extends NodeObject {
-  isMain?: boolean;
+  isMain?: string;
 }
 
 interface GraphData {
@@ -34,7 +34,7 @@ const GraphView: React.VFC<Props> = (props) => {
       linkDirectionalArrowLength={8}
       linkDirectionalArrowRelPos={0.8}
       nodeCanvasObject={(node: ExtendedNodeObject, ctx, globalScale) => {
-        if (node.isMain) {
+        if (node.isMain === "true") {
           node.x = 0;
           node.y = 0;
         }
