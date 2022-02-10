@@ -20,3 +20,9 @@ class GraphController:
         matrix = []
         # TODO: Implement logic
         return matrix
+
+#以下加えたコード
+
+f = GraphController()
+print(f)
+print(f.set_main_node)

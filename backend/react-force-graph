@@ -1,0 +1,4 @@
+import { ForceGraph2D, ForceGraph3D, ForceGraphVR, ForceGraphAR } from 'react-force-graph';
+<ForceGraph3D
+  graphData={myData}
+/>

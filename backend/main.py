@@ -1,5 +1,9 @@
+from fastapi import HTTPException
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from controller.SearchController import SearchController
+from controller.GraphController import GraphController
+from controller.InfoController import InfoController
 
 app = FastAPI()
 
@@ -16,3 +20,25 @@ app.add_middleware(
 @app.get("/")
 def read_root():
     return {"message": "Hello from FastAPI!"}
+
+
+@app.get("/kanji-visualize")
+def read_kanji_vlsualize(kanji: str):
+    print(kanji)
+    is_success, error_info = SearchController.check_input(kanji)
+    print(error_info)
+    if not is_success:
+        raise HTTPException(**error_info)
+
+    is_success, error_info, graph_matrix = GraphController.get_graph_matrix(kanji)
+    if not is_success:
+        raise HTTPException(**error_info)
+
+    is_success, error_info, kanji_info = InfoController.get_kanji_info(kanji)
+    if not is_success:
+        raise HTTPException(**error_info)
+
+    return {"graphMatrix": graph_matrix, "kanjiInfo": kanji_info}
+
+print(read_root())
+print(read_kanji_vlsualize("息"))
