@@ -24,7 +24,7 @@ def read_root():
 
 @app.get("/kanji-visualize")
 def read_kanji_vlsualize(kanji: str):
-    print(kanji)
+    print("Got request to search kanji:", kanji)
     is_success, error_info = SearchController.check_input(kanji)
     print(error_info)
     if not is_success:
