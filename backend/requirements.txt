@@ -5,3 +5,6 @@ pytest
 pre-commit
 fastapi
 uvicorn
+jamdict
+jamdict-data
+

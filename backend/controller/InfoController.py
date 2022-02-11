@@ -6,27 +6,23 @@ jam = Jamdict()
 class InfoController:
     @staticmethod
     def get_kanji_info(kanji: str):
-        # TODO: return acutual value
         query = kanji
         result = jam.lookup(query)
-        index = -1
-        for i, c in enumerate(result.chars):
-            if str(c) == query:
-                index = i
-        if i > -1:
-            kanji_info = {}
-            try:
-                kanji_info["kunyomi"] = result.entries[0].to_dict()["kana"][0]["text"]
-            except Exception as e:
-                kanji_info["kunyomi"] = ""
-                print("Error occured:", e)
-            try:
-                kanji_info["onyomi"] = result.entries[1].to_dict()["kana"][0]["text"]
-            except Exception as e:
-                kanji_info["onyomi"] = ""
-                print("Error occured:", e)
-            kanji_info["meaning"] = result.chars[index].meanings(english_only=True)[0]
+        readings = result.chars[0].to_dict()["rm"][0]["readings"]
+        try:
+            onyomi = [
+                reading["value"]
+                for reading in filter(lambda x: x["type"] == "ja_on", readings)
+            ]
+            print("Onyomi is:", onyomi)
+            kunyomi = [
+                reading["value"]
+                for reading in filter(lambda x: x["type"] == "ja_kun", readings)
+            ]
+            print("Kunyomi is:", kunyomi)
+            meaning = result.chars[0].meanings(english_only=True)
+            kanji_info = {"onyomi": onyomi, "kunyomi": kunyomi, "meaning": meaning}
             return [True, None, kanji_info]
-        else:
-            error_info = {"status_code": 400, "detail": "kanji is not in data base"}
+        except Exception:
+            error_info = {"status_code": 400, "detail": kanji + "is not in data base"}
             return [False, error_info, None]
