@@ -2,6 +2,7 @@
 # TODO: Remove the json if
 import json
 import config
+from controller.SearchController import SearchController
 
 # Note: Kanji words will be drawn by specific format in UI, the template is:
 #  { "nodes":[{"id":"","isMain":1},{...}]],
@@ -35,7 +36,8 @@ class GraphController:
         json = {"nodes": [], "links": []}
         if len(words) > 1:  # No other words or only one specified main kanji is
             for word in words:
-                if len(word) > 1:  # Probably 1 word must be same main kanji word
+                if len(word) > 1 and SearchController._is_kanji(word):
+                    # One word mmight be same main kanji word. Kana is skipped
                     json["nodes"] = json["nodes"] + GraphController.create_nodes(
                         kanji, word, json["nodes"]
                     )
@@ -71,6 +73,7 @@ class GraphController:
                         word = worda["japanese"].split("（")[0]
                         if not words.count(word):
                             words.append(word)
+
         return GraphController.construct_nodes_json(kanji, words)
 
     # TODO: Adding more static methods replace if necessary in #58
