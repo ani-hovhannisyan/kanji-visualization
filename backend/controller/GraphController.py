@@ -36,14 +36,14 @@ class GraphController:
         json = {"nodes": [], "links": []}
         if len(words) > 1:  # No other words or only one specified main kanji is
             for word in words:
-                if len(word) > 1 and SearchController._is_kanji(word):
-                    # One word mmight be same main kanji word. Kana is skipped
-                    json["nodes"] = json["nodes"] + GraphController.create_nodes(
-                        kanji, word, json["nodes"]
-                    )
-                    json["links"] = json["links"] + GraphController.create_links(
-                        kanji, word
-                    )
+                if len(word) > 1:
+                    if SearchController._is_kanji(word):  # Okurigana word is skipped
+                        json["nodes"] = json["nodes"] + GraphController.create_nodes(
+                            kanji, word, json["nodes"]
+                        )
+                        json["links"] = json["links"] + GraphController.create_links(
+                            kanji, word
+                        )
                 else:
                     # This should happen once when the main kanji is also word
                     json["nodes"].append({"id": kanji, "isMain": "true"})
