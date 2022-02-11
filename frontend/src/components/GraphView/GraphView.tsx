@@ -1,15 +1,17 @@
-import React, { useRef } from "react";
+import React from "react";
 import ForceGraph2D, { NodeObject } from "react-force-graph-2d";
 
 interface Props {
   graphData?: GraphMatrix;
+  setKanjiInput: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const GraphView: React.VFC<Props> = (props) => {
-  const ref = useRef();
-
   const handleNodeClick = (node: NodeObject) => {
-    console.log("Node clicked: ", node.id);
+    const value = node.id?.toString();
+
+    // Validate the input and draw a new result in the graph
+    props.setKanjiInput(value || "");
   };
 
   return (
