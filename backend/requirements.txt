@@ -7,4 +7,3 @@ fastapi
 uvicorn
 jamdict
 jamdict-data
-
