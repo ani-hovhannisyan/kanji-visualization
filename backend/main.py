@@ -40,3 +40,4 @@ def read_kanji_vlsualize(kanji: str):
         raise HTTPException(**error_info)
 
     return {"graphMatrix": graph_json, "kanjiInfo": kanji_info}
+

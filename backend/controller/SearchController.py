@@ -34,3 +34,4 @@ class SearchController:
             "\u4E00-\u9FFF\uF900-\uFAFF\U00020000-\U0002EBEF]+"
         )
         return p.fullmatch(kanji)
+
