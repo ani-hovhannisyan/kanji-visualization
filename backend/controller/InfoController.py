@@ -26,4 +26,3 @@ class InfoController:
         except Exception:
             error_info = {"status_code": 400, "detail": kanji + "is not in data base"}
             return [False, error_info, None]
-

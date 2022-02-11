@@ -95,4 +95,3 @@ class GraphController:
         except ValueError as e:
             error_info = {"status_code": 400, "detail": e}
             return [False, error_info, None]
-
