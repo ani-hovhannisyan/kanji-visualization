@@ -21,7 +21,14 @@ class InfoController:
             ]
             print("Kunyomi is:", kunyomi)
             meaning = result.chars[0].meanings(english_only=True)
-            kanji_info = {"onyomi": onyomi, "kunyomi": kunyomi, "meaning": meaning}
+            kanji_info = {
+                "info": {
+                    "id": kanji,
+                    "onyomi": onyomi,
+                    "kunyomi": kunyomi,
+                    "meaning": meaning,
+                }
+            }
             return [True, None, kanji_info]
         except Exception:
             error_info = {"status_code": 400, "detail": kanji + "is not in data base"}
