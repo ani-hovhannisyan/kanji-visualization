@@ -39,4 +39,4 @@ def read_kanji_visualize(kanji: str):
     if not is_success:
         raise HTTPException(**error_info)
 
-    return {"graphMatrix": graph_json, "kanjiInfo": kanji_info}
+    return {**graph_json, **kanji_info}
