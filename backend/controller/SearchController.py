@@ -4,7 +4,6 @@ import re
 class SearchController:
     @staticmethod
     def check_input(kanji):
-        print(len(kanji))
 
         if kanji == "":
             return SearchController._create_result(
