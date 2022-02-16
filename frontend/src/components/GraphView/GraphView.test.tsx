@@ -6,7 +6,11 @@ import testData from "./testData.json";
 
 describe("GraphView", () => {
   test("rendered with test data", async () => {
-    const { container } = render(<GraphView graphData={testData} />);
+    const mock = jest.fn();
+
+    const { container } = render(
+      <GraphView graphData={testData} setKanjiInput={mock} />
+    );
     expect(container).toMatchSnapshot();
   });
 });

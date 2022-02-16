@@ -8,8 +8,8 @@ exports[`GraphView rendered with test data 1`] = `
       style="position: relative;"
     >
       <canvas
-        height="400"
-        style="width: 1024px; height: 400px;"
+        height="460"
+        style="width: 1024px; height: 460.79999999999995px;"
         width="1024"
       />
       <div
