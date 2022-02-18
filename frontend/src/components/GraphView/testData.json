@@ -1,0 +1,67 @@
+{
+  "nodes": [
+    {
+      "id": "山",
+      "isMain": "true"
+    },
+    {
+      "id": "登"
+    },
+    {
+      "id": "士"
+    },
+    {
+      "id": "富"
+    },
+    {
+      "id": "脈"
+    },
+    {
+      "id": "林"
+    },
+    {
+      "id": "頂"
+    }
+  ],
+  "links": [
+    {
+      "source": "登",
+      "target": "山"
+    },
+    {
+      "source": "富",
+      "target": "士"
+    },
+    {
+      "source": "士",
+      "target": "山"
+    },
+    {
+      "source": "山",
+      "target": "脈"
+    },
+    {
+      "source": "山",
+      "target": "林"
+    },
+    {
+      "source": "山",
+      "target": "頂"
+    }
+  ],
+  "info": [
+    {
+      "id": "山",
+      "isMain": "true",
+      "onyomi": ["サン", "セン"],
+      "kunyomi": ["ヤマ"],
+      "meaning": ["mountain"]
+    },
+    {
+      "id": "登",
+      "onyomi": ["ト", "トウ"],
+      "kunyomi": ["ノボる"],
+      "meaning": ["ascend", "climb up"]
+    }
+  ]
+}

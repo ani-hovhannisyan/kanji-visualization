@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GraphView rendered with test data 1`] = `
+<div>
+  <div>
+    <div
+      class="force-graph-container"
+      style="position: relative;"
+    >
+      <canvas
+        height="460"
+        style="width: 1024px; height: 460.79999999999995px;"
+        width="1024"
+      />
+      <div
+        class="graph-tooltip"
+      />
+    </div>
+  </div>
+</div>
+`;

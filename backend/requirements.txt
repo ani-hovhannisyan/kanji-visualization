@@ -1,3 +1,4 @@
+requests
 flake8
 black
 mypy
@@ -5,3 +6,5 @@ pytest
 pre-commit
 fastapi
 uvicorn
+jamdict
+jamdict-data
