@@ -9,8 +9,8 @@ class InfoController:
     def get_kanji_info(kanji: str):
         query = kanji
         result = jam.lookup(query)
-        readings = result.chars[0].to_dict()["rm"][0]["readings"]
         try:
+            readings = result.chars[0].to_dict()["rm"][0]["readings"]
             onyomi = [
                 reading["value"]
                 for reading in filter(lambda x: x["type"] == "ja_on", readings)
