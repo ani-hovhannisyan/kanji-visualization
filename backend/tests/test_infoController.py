@@ -7,13 +7,21 @@ def test_normal():
     expected_result = [
         True,
         None,
-        {"onyomi": ["サン", "セン"], "kunyomi": ["やま"], "meaning": ["mountain"]},
+        {
+            "info": {
+                "id": "山",
+                "onyomi": ["サン", "セン"],
+                "kunyomi": ["やま"],
+                "meaning": ["mountain"],
+            }
+        },
     ]
     assert result == expected_result
 
 
 def test_invalid():
-    result = InfoController.get_kanji_info("ア")
-    error_info = {"status_code": 400, "detail": "アis not in data base"}
+    query = "ア"
+    result = InfoController.get_kanji_info(query)
+    error_info = {"status_code": 400, "detail": f"{query}is not in data base"}
     expected_result = [False, error_info, None]
     assert result == expected_result
