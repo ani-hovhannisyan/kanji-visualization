@@ -1,6 +1,6 @@
 from jamdict import Jamdict
 
-jam = Jamdict()
+jam = Jamdict(reuse_ctx=False)
 
 
 class InfoController:
