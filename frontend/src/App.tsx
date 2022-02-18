@@ -22,7 +22,7 @@ function App() {
         setGraph={setGraph}
       ></SearchField>
       <GraphView graphData={graph} setKanjiInput={setKanjiInput} />
-      <InfoView infoData={kanji} setKanji={setKanji}/>
+      <InfoView infoData={kanji} setKanji={setKanji} />
     </div>
   );
 }
