@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { isKanji } from "../../utils/functions";
-import { createImportSpecifier } from "typescript";
 
 type Props = {
   kanjiInput: string;
