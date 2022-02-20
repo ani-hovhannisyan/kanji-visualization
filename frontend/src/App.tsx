@@ -8,9 +8,9 @@ function App() {
   const [kanji, setKanji] = useState<undefined | KanjiInfo>();
   const [graph, setGraph] = useState<undefined | GraphMatrix>();
 
-   console.log("Inputed kanji is:", kanjiInput);
-   console.log("Kanji inforamtion is:", kanji);
-   console.log("Kanji graph is:", graph);
+  //console.log("Inputed kanji is:", kanjiInput);
+  //console.log("Kanji inforamtion is:", kanji);
+  //console.log("Kanji graph is:", graph);
 
   return (
     <div className="App">

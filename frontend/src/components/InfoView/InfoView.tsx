@@ -6,12 +6,14 @@ interface Props {
 }
 
 const InfoView: React.VFC<Props> = (props) => {
+  //console.log("In InfoView, received kanji info is:", info);
+
   const info = props.infoData;
-  console.log("In InfoView, received kanji info is:", info);
-  const lang = "English" // Use this when other languages become supported
+  const lang = "English"; // Use this when other languages become supported
+
   if (info !== undefined) {
     return (
-      <div className="kanji-info" >
+      <div className="kanji-info">
         <h2>The {info.id} kanji Information</h2>
         <h3>Onyomi</h3>
         <p> {info.onyomi.join()} </p>

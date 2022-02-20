@@ -20,7 +20,7 @@ type KanjiInfo = {
   onyomi: string[];
   kunyomi: string[];
   meaning: string[];
-}
+};
 
 type ResponseData = GraphMatrix & {
   info: KanjiInfo;
