@@ -14,15 +14,13 @@ interface GraphMatrix {
   links: Links[];
 }
 
-interface KanjiInfoElement {
+type KanjiInfo = {
   id: string;
   isMain?: string;
   onyomi: string[];
   kunyomi: string[];
   meaning: string[];
 }
-
-type KanjiInfo = KanjiInfoElement[];
 
 type ResponseData = GraphMatrix & {
   info: KanjiInfo;

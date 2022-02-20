@@ -21,8 +21,8 @@ function App() {
         setKanji={setKanji}
         setGraph={setGraph}
       ></SearchField>
-      <GraphView graphData={graph} setKanjiInput={setKanjiInput} />
       <InfoView infoData={kanji} setKanji={setKanji} />
+      <GraphView graphData={graph} setKanjiInput={setKanjiInput} />
     </div>
   );
 }
