@@ -35,7 +35,6 @@ const SearchField: React.VFC<Props> = (props) => {
     }
 
     function getSearchResult() {
-      console.log("getSearchResult");
       axios
         .get(
           `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}/kanji-visualize?kanji=${props.kanjiInput}`
