@@ -44,9 +44,7 @@ class GraphController:
                         json["links"] = json["links"] + GraphController.create_links(
                             kanji, word
                         )
-                else:
-                    # This should happen once when the main kanji is also word
-                    json["nodes"].append({"id": kanji, "isMain": "true"})
+            json["nodes"].append({"id": kanji, "isMain": "true"})
         else:
             print("Can't find any word from the DB for specified kanji.")
         return json

@@ -26,7 +26,7 @@ def read_root():
 def read_kanji_visualize(kanji: str):
     print("Got request to search kanji:", kanji)
     is_success, error_info = SearchController.check_input(kanji)
-    print(error_info)
+    print("API /kanji-visualize got error:", error_info)
     if not is_success:
         raise HTTPException(**error_info)
 

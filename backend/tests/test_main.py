@@ -14,7 +14,6 @@ def test_read_kanji_visualize():
     response = client.get("/kanji-visualize?kanji=山")
     expected_response = {
         "nodes": [
-            {"id": "山", "isMain": "true"},
             {"id": "陰"},
             {"id": "治"},
             {"id": "開"},
@@ -30,6 +29,7 @@ def test_read_kanji_visualize():
             {"id": "登"},
             {"id": "岩"},
             {"id": "事"},
+            {"id": "山", "isMain": "true"},
         ],
         "links": [
             {"source": "山", "target": "陰"},
