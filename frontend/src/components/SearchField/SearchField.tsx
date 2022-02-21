@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { isKanji } from "../../utils/functions";
+import Paper from "@mui/material/Paper";
+import TextField from "@mui/material/TextField";
 
 type Props = {
   kanjiInput: string;
@@ -10,7 +12,7 @@ type Props = {
 };
 
 const SearchField: React.VFC<Props> = (props) => {
-  const [error, setError] = useState<string>("Fill form");
+  const [error, setError] = useState<string>("");
 
   const handleKanjiChange = (event: { target: { value: string } }) => {
     const input = event.target.value;
@@ -22,13 +24,13 @@ const SearchField: React.VFC<Props> = (props) => {
     const input = props.kanjiInput;
 
     if (input.length === 0) {
-      setError("Fill form");
+      setError("");
     } else if (input.length !== 1) {
-      setError("Only one character is allowed");
+      setError("Too long input. Please enter only one character.");
     } else if (typeof input != "string") {
-      setError("Invalid Input");
+      setError("Invalid input type. Please enter a kanji.");
     } else if (!isKanji(input)) {
-      setError("Input Only Kanji");
+      setError("Invalid input type. Please enter a kanji.");
     } else {
       setError("");
       getSearchResult();
@@ -53,17 +55,23 @@ const SearchField: React.VFC<Props> = (props) => {
   }, [setError, props.kanjiInput, props.setKanji, props.setGraph]);
 
   return (
-    <div>
-      <h2>Input Kanji</h2>
+    <Paper elevation={0} sx={{ width: "fit-content", padding: "1rem" }}>
       <div style={{ display: "flex" }}>
-        <input
+        <TextField
           type="text"
+          error={!!error}
+          placeholder="Search"
+          helperText={
+            !error && props.kanjiInput.length === 0
+              ? "Please enter one kanji"
+              : error
+          }
           value={props.kanjiInput}
+          variant="outlined"
           onChange={handleKanjiChange}
         />
       </div>
-      <div>{error}</div>
-    </div>
+    </Paper>
   );
 };
 
