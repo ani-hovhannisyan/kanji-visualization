@@ -43,7 +43,11 @@ const SearchField: React.VFC<Props> = (props) => {
           const { data, status }: { data: ResponseData; status: number } = res;
           console.log(data, status);
           props.setKanji(data.info);
-          props.setGraph({ nodes: data.nodes, links: data.links });
+          if (data.nodes && data.links) {
+            props.setGraph({ nodes: data.nodes, links: data.links });
+          } else {
+            setError("No graph data");
+          }
         })
         .catch((error) => {
           console.log(error.response);
