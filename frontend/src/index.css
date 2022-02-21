@@ -11,3 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+h1, h2 {
+  color: #3d5afe;
+  font-family: 'Enriqueta', arial, serif;
+  font-weight: bold;
+}
+
+p {
+  color: #333333;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}

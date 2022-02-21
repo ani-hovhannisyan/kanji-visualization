@@ -3,14 +3,16 @@ import SearchField from "./components/SearchField/SearchField";
 import GraphView from "./components/GraphView/GraphView";
 import CssBaseline from "@mui/material/CssBaseline";
 import Typography from "@mui/material/Typography";
+import InfoView from "./components/InfoView/InfoView";
 
 function App() {
   const [kanjiInput, setKanjiInput] = useState<string>("");
   const [kanji, setKanji] = useState<undefined | KanjiInfo>();
   const [graph, setGraph] = useState<undefined | GraphMatrix>();
 
-  // console.log(kanji);
-  // console.log(graph);
+  //console.log("Inputed kanji is:", kanjiInput);
+  //console.log("Kanji inforamtion is:", kanji);
+  //console.log("Kanji graph is:", graph);
 
   return (
     <>
@@ -25,6 +27,7 @@ function App() {
           setKanji={setKanji}
           setGraph={setGraph}
         ></SearchField>
+        <InfoView infoData={kanji} setKanji={setKanji} />
         <GraphView graphData={graph} setKanjiInput={setKanjiInput} />
       </div>
     </>
