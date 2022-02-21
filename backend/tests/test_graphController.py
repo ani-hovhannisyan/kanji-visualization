@@ -1,8 +1,5 @@
-import os
-import sys
+import pathmagic  # noqa: F401
 from controller.GraphController import GraphController
-
-sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 
 def test_normal():
