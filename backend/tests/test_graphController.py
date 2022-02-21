@@ -10,7 +10,6 @@ def test_normal():
         None,
         {
             "nodes": [
-                {"id": "山", "isMain": "true"},
                 {"id": "陰"},
                 {"id": "治"},
                 {"id": "開"},
@@ -26,6 +25,7 @@ def test_normal():
                 {"id": "登"},
                 {"id": "岩"},
                 {"id": "事"},
+                {"id": "山", "isMain": "true"},
             ],
             "links": [
                 {"source": "山", "target": "陰"},
@@ -63,7 +63,6 @@ def test_okurigana():
                 {"id": "柳"},
                 {"id": "山"},
                 {"id": "四"},
-                {"id": "川", "isMain": "true"},
                 {"id": "上"},
                 {"id": "堀"},
                 {"id": "河"},
@@ -71,6 +70,7 @@ def test_okurigana():
                 {"id": "江"},
                 {"id": "戸"},
                 {"id": "小"},
+                {"id": "川", "isMain": "true"},
             ],
             "links": [
                 {"source": "川", "target": "柳"},
@@ -98,7 +98,13 @@ def test_mainkanji_asword():
         True,
         None,
         {
-            "nodes": [{"id": "嬢"}, {"id": "蘇"}, {"id": "三"}, {"id": "昧"}],
+            "nodes": [
+                {"id": "嬢"},
+                {"id": "蘇"},
+                {"id": "三"},
+                {"id": "昧"},
+                {"id": "耶", "isMain": "true"},
+            ],
             "links": [
                 {"source": "耶", "target": "嬢"},
                 {"source": "耶", "target": "蘇"},
