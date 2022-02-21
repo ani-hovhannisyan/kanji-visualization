@@ -7530,7 +7530,7 @@ resolve-url-loader@^4.0.0:
     adjust-sourcemap-loader "^4.0.0"
     convert-source-map "^1.7.0"
     loader-utils "^2.0.0"
-    postcss "^7.0.35"
+    postcss "^8.2.13"
     source-map "0.6.1"
 
 resolve.exports@^1.1.0:

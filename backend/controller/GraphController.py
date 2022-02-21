@@ -34,10 +34,10 @@ class GraphController:
     @staticmethod
     def construct_nodes_json(kanji, words):
         json = {"nodes": [], "links": []}
-        if len(words) > 1:  # No other words or only one specified main kanji is
+        if len(words) > 1:  # No other words or one specified main kanji is
             for word in words:
                 if len(word) > 1:
-                    if SearchController._is_kanji(word):  # Okurigana word is skipped
+                    if SearchController._is_kanji(word):  # Skip okurigana
                         json["nodes"] = json["nodes"] + GraphController.create_nodes(
                             kanji, word, json["nodes"]
                         )
