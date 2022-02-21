@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import SearchField from "./components/SearchField/SearchField";
 import GraphView from "./components/GraphView/GraphView";
+import CssBaseline from "@mui/material/CssBaseline";
+import Typography from "@mui/material/Typography";
 
 function App() {
   const [kanjiInput, setKanjiInput] = useState<string>("");
@@ -11,16 +13,21 @@ function App() {
   // console.log(graph);
 
   return (
-    <div className="App">
-      <h1>Kanji Visualizer</h1>
-      <SearchField
-        kanjiInput={kanjiInput}
-        setKanjiInput={setKanjiInput}
-        setKanji={setKanji}
-        setGraph={setGraph}
-      ></SearchField>
-      <GraphView graphData={graph} setKanjiInput={setKanjiInput} />
-    </div>
+    <>
+      <CssBaseline />
+      <div className="App">
+        <Typography variant="h4" component="h1">
+          Kanji Visualizer
+        </Typography>
+        <SearchField
+          kanjiInput={kanjiInput}
+          setKanjiInput={setKanjiInput}
+          setKanji={setKanji}
+          setGraph={setGraph}
+        ></SearchField>
+        <GraphView graphData={graph} setKanjiInput={setKanjiInput} />
+      </div>
+    </>
   );
 }
 
