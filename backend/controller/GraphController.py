@@ -38,12 +38,12 @@ class GraphController:
             for word in words:
                 if len(word) > 1:
                     if SearchController._is_kanji(word):  # Skip okurigana
-                        json["nodes"] = \
-                            json["nodes"] + GraphController.create_nodes(
-                            kanji, word, json["nodes"])
-                        json["links"] = \
-                            json["links"] + GraphController.create_links(
-                            kanji, word)
+                        json["nodes"] = json["nodes"] + GraphController.create_nodes(
+                            kanji, word, json["nodes"]
+                        )
+                        json["links"] = json["links"] + GraphController.create_links(
+                            kanji, word
+                        )
                 else:
                     # This should happen once when the main kanji is also word
                     json["nodes"].append({"id": kanji, "isMain": "true"})
@@ -67,8 +67,7 @@ class GraphController:
                 if len(wordk["example"]) and not words.count(wordk["example"]):
                     words.append(wordk["example"])
 
-            if ("kanjialiveData" in data and
-                    "examples" in data["kanjialiveData"]):
+            if "kanjialiveData" in data and "examples" in data["kanjialiveData"]:
                 for worda in data["kanjialiveData"]["examples"]:
                     if len(worda["japanese"]):
                         word = worda["japanese"].split("（")[0]

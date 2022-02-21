@@ -98,19 +98,14 @@ def test_mainkanji_asword():
         True,
         None,
         {
-            "nodes": [
-                {"id": "嬢"},
-                {"id": "蘇"},
-                {"id": "三"},
-                {"id": "昧"}
-            ],
+            "nodes": [{"id": "嬢"}, {"id": "蘇"}, {"id": "三"}, {"id": "昧"}],
             "links": [
                 {"source": "耶", "target": "嬢"},
                 {"source": "耶", "target": "蘇"},
                 {"source": "三", "target": "昧"},
-                {"source": "昧", "target": "耶"}
-            ]
-        }
+                {"source": "昧", "target": "耶"},
+            ],
+        },
     ]
 
     assert result == expected_result
