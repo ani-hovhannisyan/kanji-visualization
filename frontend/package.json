@@ -19,6 +19,7 @@
     "react-force-graph-2d": "^1.23.10",
     "react-hook-form": "^7.26.0",
     "react-scripts": "5.0.0",
+    "react-use": "^17.3.2",
     "typescript": "^4.4.2",
     "web-vitals": "^2.1.0"
   },
