@@ -9,12 +9,7 @@ const Header: React.VFC = () => {
     <AppBar position="static" sx={{ mb: "1rem" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
-          >
+          <Typography variant="h6" noWrap component="div" sx={{ mr: 2 }}>
             Kanji Visualizer
           </Typography>
         </Toolbar>
