@@ -232,5 +232,5 @@ After pushing the changes, CI/CD will automatically be executed on [GitHub Actio
 - release: for deploy
 
 ## Infrastructure
-* Github Action is not working now, So We have to build images on local and push it manually.
+* Github Action is not working now, So We have to build images on local and push it to ECR manually.
 <img width="848" alt="image" src="https://user-images.githubusercontent.com/45113742/155060080-ae578d0a-406d-4d12-8405-f0bfeaaddf81.png">
