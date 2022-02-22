@@ -41,9 +41,13 @@ const SearchField: React.VFC<Props> = (props) => {
     function getSearchResult() {
       props.setLoading(true);
 
+      console.log(
+        "uri",
+        `${process.env.REACT_APP_API_URL}${process.env.REACT_APP_API_PORT}/kanji-visualize?kanji=${props.kanjiInput}`
+      );
       axios
         .get(
-          `${process.env.REACT_APP_API_URL}${process.env.REACT_APP_API_PORT}/kanji-visualize?kanji=${props.kanjiInput}`
+          `https://bfntdbtw8w.us-east-1.awsapprunner.com/kanji-visualize?kanji=${props.kanjiInput}`
         )
         .then((res) => {
           props.setLoading(false);

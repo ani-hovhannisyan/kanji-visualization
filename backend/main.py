@@ -10,7 +10,10 @@ app = FastAPI()
 # to avoid CORS error
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=[
+        "http://localhost:3000",
+        "https://tvmbj3cgmr.us-east-1.awsapprunner.com",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
