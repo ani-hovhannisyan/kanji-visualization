@@ -216,3 +216,11 @@ cd frontend
 If all tests are passed, you can run `git push`.
 
 After pushing the changes, CI/CD will automatically be executed on [GitHub Actions](https://github.com/ani-hovhannisyan/kanji-visualization/actions).
+
+
+## Branches
+- main: only a develop branch is merged to main
+- develop: all feature branches are merged to develop
+- feature/XXXX: for develop feature
+- bugfix/XXX : for bugfix
+- release: for deploy
