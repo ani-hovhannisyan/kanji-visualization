@@ -9,7 +9,7 @@ describe("GraphView", () => {
     const mock = jest.fn();
 
     const { container } = render(
-      <GraphView graphData={testData} setKanjiInput={mock} />
+      <GraphView loading={false} graphData={testData} setKanjiInput={mock} />
     );
     expect(container).toMatchSnapshot();
   });
