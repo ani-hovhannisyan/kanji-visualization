@@ -3,6 +3,12 @@ Kanji words visualization graph
 
 For more information about structure and functionality, see the docs directory.
 
+<img width="953" alt="image" src="https://user-images.githubusercontent.com/45113742/155059870-17275b76-1470-48c0-ac3e-ad024dcd35e5.png">
+
+
+## Demo
+https://tvmbj3cgmr.us-east-1.awsapprunner.com/
+
 ## Directory Structure
 
 - `docs`
@@ -224,3 +230,7 @@ After pushing the changes, CI/CD will automatically be executed on [GitHub Actio
 - feature/XXXX: for develop feature
 - bugfix/XXX : for bugfix
 - release: for deploy
+
+## Infrastructure
+* Github Action is not working now, So We have to build images on local and push it manually.
+<img width="848" alt="image" src="https://user-images.githubusercontent.com/45113742/155060080-ae578d0a-406d-4d12-8405-f0bfeaaddf81.png">
