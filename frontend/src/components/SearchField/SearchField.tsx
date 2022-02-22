@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { isKanji } from "../../utils/functions";
+import Paper from "@mui/material/Paper";
+import TextField from "@mui/material/TextField";
+import SearchIcon from "@mui/icons-material/Search";
 
 type Props = {
   kanjiInput: string;
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
   setKanjiInput: React.Dispatch<React.SetStateAction<string>>;
   setKanji: React.Dispatch<React.SetStateAction<KanjiInfo | undefined>>;
   setGraph: React.Dispatch<React.SetStateAction<GraphMatrix | undefined>>;
 };
 
 const SearchField: React.VFC<Props> = (props) => {
-  const [error, setError] = useState<string>("Fill form");
+  const [error, setError] = useState<string>("");
 
   const handleKanjiChange = (event: { target: { value: string } }) => {
     const input = event.target.value;
@@ -22,24 +26,28 @@ const SearchField: React.VFC<Props> = (props) => {
     const input = props.kanjiInput;
 
     if (input.length === 0) {
-      setError("Fill form");
+      setError("");
     } else if (input.length !== 1) {
-      setError("Only one character is allowed");
+      setError("Too long input. Please enter only one character.");
     } else if (typeof input != "string") {
-      setError("Invalid Input");
+      setError("Invalid input type. Please enter a kanji.");
     } else if (!isKanji(input)) {
-      setError("Input Only Kanji");
+      setError("Invalid input type. Please enter a kanji.");
     } else {
       setError("");
       getSearchResult();
     }
 
     function getSearchResult() {
+      props.setLoading(true);
+
       axios
         .get(
           `${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}/kanji-visualize?kanji=${props.kanjiInput}`
         )
         .then((res) => {
+          props.setLoading(false);
+
           const { data, status }: { data: ResponseData; status: number } = res;
           console.log(data, status);
           props.setKanji(data.info);
@@ -50,6 +58,8 @@ const SearchField: React.VFC<Props> = (props) => {
           }
         })
         .catch((error) => {
+          props.setLoading(false);
+
           console.log(error.response);
           setError(error.response.data.detail);
         });
@@ -57,17 +67,30 @@ const SearchField: React.VFC<Props> = (props) => {
   }, [setError, props.kanjiInput, props.setKanji, props.setGraph]);
 
   return (
-    <div>
-      <h2>Input Kanji</h2>
-      <div style={{ display: "flex" }}>
-        <input
-          type="text"
-          value={props.kanjiInput}
-          onChange={handleKanjiChange}
-        />
-      </div>
-      <div>{error}</div>
-    </div>
+    <Paper
+      elevation={0}
+      sx={{
+        m: "1rem 2rem 0 0",
+      }}
+    >
+      <TextField
+        type="text"
+        error={!!error}
+        placeholder="Search"
+        autoFocus
+        helperText={
+          !error && props.kanjiInput.length === 0
+            ? "Please enter one kanji"
+            : error
+        }
+        value={props.kanjiInput}
+        variant="outlined"
+        onChange={handleKanjiChange}
+        InputProps={{
+          startAdornment: <SearchIcon sx={{ marginRight: "14px" }} />,
+        }}
+      />
+    </Paper>
   );
 };
 

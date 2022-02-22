@@ -2,19 +2,30 @@
 
 exports[`GraphView rendered with test data 1`] = `
 <div>
-  <div>
-    <div
-      class="force-graph-container"
-      style="position: relative;"
+  <div
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation2 css-a8ovzx-MuiPaper-root"
+    id="graph-view"
+  >
+    <h2
+      class="MuiTypography-root MuiTypography-h5 css-ag7rrr-MuiTypography-root"
+      id="graph-view-title"
     >
-      <canvas
-        height="460"
-        style="width: 1024px; height: 460.79999999999995px;"
-        width="1024"
-      />
+      Graph
+    </h2>
+    <div>
       <div
-        class="graph-tooltip"
-      />
+        class="force-graph-container"
+        style="position: relative;"
+      >
+        <canvas
+          height="768"
+          style="width: 889.6px; height: 768px;"
+          width="889"
+        />
+        <div
+          class="graph-tooltip"
+        />
+      </div>
     </div>
   </div>
 </div>
