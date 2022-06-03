@@ -33,7 +33,8 @@ class GraphController:
 
     @staticmethod
     def construct_nodes_json(kanji, words):
-        json = {"nodes": [], "links": []}
+        words_list = list(dict.fromkeys(words))
+        json = {"nodes": [], "links": [], "words": words_list}
         if len(words) > 1:  # No other words or one specified main kanji is
             for word in words:
                 if len(word) > 1:

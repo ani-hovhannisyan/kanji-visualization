@@ -53,16 +53,14 @@ const SearchField: React.VFC<Props> = (props) => {
   }, [setError, props.kanjiInput, props.setKanji, props.setGraph]);
 
   return (
-    <div>
+    <div className="kanji-search">
       <h2>Input Kanji</h2>
-      <div style={{ display: "flex" }}>
-        <input
-          type="text"
-          value={props.kanjiInput}
-          onChange={handleKanjiChange}
-        />
-      </div>
-      <div>{error}</div>
+      <input
+        type="text"
+        value={props.kanjiInput}
+        onChange={handleKanjiChange}
+      />
+      <div className="error">{error}</div>
     </div>
   );
 };
