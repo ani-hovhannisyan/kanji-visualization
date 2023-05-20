@@ -1,6 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`GraphView rendered with test data 1`] = `
+
 <div>
   <div
     class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation2 css-a8ovzx-MuiPaper-root"
@@ -28,5 +29,13 @@ exports[`GraphView rendered with test data 1`] = `
       </div>
     </div>
   </div>
+
+//<div class="force-graph-container" >
+//      <canvas
+//        height="460"
+//        style="width: 1024px; height: 460px;"
+//        width="1024"
+//      />
+//      <div class="graph-tooltip" />
+
 </div>
-`;

@@ -91,6 +91,17 @@ const SearchField: React.VFC<Props> = (props) => {
         }}
       />
     </Paper>
+
+//    <div className="kanji-search">
+//      <h2>Input Kanji</h2>
+//      <input
+//        type="text"
+//        value={props.kanjiInput}
+//        onChange={handleKanjiChange}
+//      />
+//      <div className="error">{error}</div>
+//    </div>
+
   );
 };
 
