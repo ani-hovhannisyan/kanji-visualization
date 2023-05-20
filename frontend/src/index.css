@@ -24,3 +24,23 @@ p {
   color: #333333;
   font-family: "Helvetica Neue", Arial, sans-serif;
 }
+
+div .kanji-info, .kanji-search, .kanji-graph, .force-graph-container {
+    border: 1px solid #3d5afe;
+}
+
+div .kanji-search {
+    width: 30%;
+}
+
+div .kanji-info {
+    width: 70%;
+}
+
+div .kanji-words {
+    width: 40%;
+}
+
+div .force-graph-container {
+    width: 60%;
+}
