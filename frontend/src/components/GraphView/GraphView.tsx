@@ -20,7 +20,7 @@ const GraphView: React.VFC<Props> = (props) => {
     { width, height }
   );
 
-  const padding = 16;
+  const padding = 8;
 
   useEffect(() => {
     const graphViewTop =
