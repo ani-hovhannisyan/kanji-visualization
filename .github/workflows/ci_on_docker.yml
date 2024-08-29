@@ -12,10 +12,10 @@ jobs:
         uses: actions/checkout@v2
       # -d でバックグラウンド実行
       - name: docker build
-        run: docker-compose up -d
+        run: docker compose up -d
       # -Tは no TTY への対策
       - name: frontend test
-        run: docker-compose exec -T -e CI=true frontend yarn test
+        run: docker compose exec -T -e CI=true frontend yarn test
       # -Tは no TTY への対策
       - name: backend test
-        run: docker-compose exec -T backend pytest
+        run: docker compose exec -T backend pytest
