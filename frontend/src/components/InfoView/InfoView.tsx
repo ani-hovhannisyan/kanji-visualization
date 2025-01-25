@@ -16,9 +16,10 @@ const InfoView: React.VFC<Props> = (props) => {
   //console.log("In InfoView, received kanji info is:", info);
 
   const info = props.infoData;
-  const lang = "English"; // Use this when other languages become supported
+  // Use this when other languages become supported
+  const lang = "English";
 
-  const joinToStr = (arr: string[]) => arr.join().replace(",", ", ");
+  const joinToStr = (arr: string[]) => arr.join(", ")
 
   const createData = (name: string, value: string) => {
     return { name, value };
@@ -56,7 +57,7 @@ const InfoView: React.VFC<Props> = (props) => {
       sx={{ flexGrow: 1, padding: "1rem" }}
     >
       <Typography variant="h5" component="h2">
-        The {info?.id} kanji Information
+        Details
       </Typography>
       {table}
     </Paper>

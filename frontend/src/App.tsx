@@ -14,8 +14,8 @@ function App() {
   const [graph, setGraph] = useState<undefined | GraphMatrix>();
   const [loading, setLoading] = useState<boolean>(false);
 
-  //console.log("Inputed kanji is:", kanjiInput);
-  //console.log("Kanji inforamtion is:", kanji);
+  //console.log("Input kanji is:", kanjiInput);
+  //console.log("Kanji information is:", kanji);
   //console.log("Kanji graph is:", graph);
 
   return (

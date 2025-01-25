@@ -1,5 +1,6 @@
 # This is the Graph Controller class implementation.
 # TODO: Remove the json if
+import os
 import json
 import config
 from controller.SearchController import SearchController
@@ -34,21 +35,19 @@ class GraphController:
     @staticmethod
     def construct_nodes_json(kanji, words):
         words_list = list(dict.fromkeys(words))
-        json = {"nodes": [], "links": [], "words": words_list}
+        djson = {"nodes": [], "links": [], "words": words_list}
         if len(words) > 1:  # No other words or one specified main kanji is
             for word in words:
                 if len(word) > 1:
                     if SearchController._is_kanji(word):  # Skip okurigana
-                        json["nodes"] = json["nodes"] + GraphController.create_nodes(
-                            kanji, word, json["nodes"]
-                        )
-                        json["links"] = json["links"] + GraphController.create_links(
-                            kanji, word
-                        )
-            json["nodes"].append({"id": kanji, "isMain": "true"})
+                        djson["nodes"] = djson["nodes"] + GraphController.create_nodes(
+                            kanji, word, djson["nodes"])
+                        djson["links"] = djson["links"] + GraphController.create_links(
+                            kanji, word)
+            djson["nodes"].append({"id": kanji, "isMain": "true"})
         else:
             print("Can't find any word from the DB for specified kanji.")
-        return json
+        return djson
 
     @staticmethod
     # TODO: It might happen to have same kanji with different reading, current
@@ -72,28 +71,28 @@ class GraphController:
                         word = worda["japanese"].split("（")[0]
                         if not words.count(word):
                             words.append(word)
+                        # TODO: Keep occurences of same word
 
         return GraphController.construct_nodes_json(kanji, words)
 
     # TODO: Adding more static methods replace if necessary in #58
     @staticmethod
     def load_local_db(kanji):
-        # TODO: Put try catch for unexpected DB file and json format
-        f = open(config.KANJI_DATA_FILE)
-        localDB = json.loads(f.read())
-        data = {}
-        for entity in localDB:
-            if kanji == entity:
-                data = GraphController.get_words_data(kanji, localDB[entity])
-                break
-        return data
-
-    # TODO: As this method will open the data file each time make it one time
-    @staticmethod
-    def get_graph_matrix(kanji: str):
         try:
-            graph_matrix = GraphController.load_local_db(kanji)
-            return [True, None, graph_matrix]
+            data = {}
+            if not os.path.exists(config.KANJI_DATA_FILE):
+                print("Can not read config file:", config.KANJI_DATA_FILE)
+                return data
+            f = open(config.KANJI_DATA_FILE)
+            localDB = json.loads(f.read())
+            return [True, localDB]
         except ValueError as e:
-            error_info = {"status_code": 400, "detail": e}
-            return [False, error_info, None]
+            return [False, error_info]
+
+    @staticmethod
+    def get_graph_matrix(kanji, db):
+        graph_matrix = {}
+        for entity in db:
+            if kanji == entity:
+                graph_matrix = GraphController.get_words_data(kanji, db[entity])
+        return [True, None, graph_matrix]

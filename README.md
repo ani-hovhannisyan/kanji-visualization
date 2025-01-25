@@ -44,7 +44,7 @@ Where Controllers are considered to be in backend, and Views are in frontend.
 
 4. Run Docker Compose.
    ```sh
-   docker-compose up
+   docker-compose up (or on Linux docker compose up)
    ```
 
    This will start the frontend and backend server automatically.
@@ -67,7 +67,8 @@ Where Controllers are considered to be in backend, and Views are in frontend.
 
 4. Run Docker Compose.
    ```sh
-   docker-compose up
+   docker-compose up (or on Linux docker compose up)
+
    ```
 
    This will start the frontend and backend server automatically.

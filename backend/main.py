@@ -19,19 +19,33 @@ app.add_middleware(
 
 @app.get("/")
 def read_root():
-    return {"message": "Hello from FastAPI!"}
+    return {"message": "Hi, Kanji-Visualization Server FAST API works fine!"}
 
 
-@app.get("/kanji-visualize")
-def read_kanji_visualize(kanji: str):
-    print("Got request to search kanji:", kanji)
+@app.get("/kanjidata")
+async def read_kanji_visualize(kanji: str):
+    """
+    Search kanji by character.
+    Args:
+        kanji (str): The Japanese language single character.
+    Returns:
+        json: A json containing character details.
+    """
+
+    # print("Got request to search kanji:", kanji)
+
     is_success, error_info = SearchController.check_input(kanji)
-    print("API /kanji-visualize got error:", error_info)
+    if error_info:
+        print("API /kanjidata got error:", error_info)
+
     if not is_success:
         raise HTTPException(**error_info)
 
-    # TODO: Think of moving local DB loading to the top of server run
-    is_success, error_info, graph_json = GraphController.get_graph_matrix(kanji)
+    is_db_success, data = GraphController.load_local_db(kanji)
+    if not is_db_success:
+        raise HTTPException(**data)
+
+    is_success, error_info, graph_json = GraphController.get_graph_matrix(kanji, data)
     if not is_success:
         raise HTTPException(**error_info)
 
@@ -39,4 +53,6 @@ def read_kanji_visualize(kanji: str):
     if not is_success:
         raise HTTPException(**error_info)
 
-    return {**graph_json, **kanji_info}
+    result = {**graph_json, **kanji_info}
+
+    return result
